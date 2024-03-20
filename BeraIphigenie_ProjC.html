@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Project C - Iphigenie Bera</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="600" height="600">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <p>
+      <button type="button" onclick="VBO0toggle()">Grid hide/show</button>
+      <button type="button" onclick="GPtoggle()">toggle Gouraud/Phong</button>
+      <button type="button" onclick="toggleBlinn()">toggle Phong/Blinn-phong</button>
+      <div> Lighting mode: <span id="lighting"></span></div>
+      <div> Shading mode: <span id="shading"></span></div>
+    </p>
+
+    <div>
+    <div>Choose color for Material 1</div>
+    <select id="materialDropdown1">
+    </select>
+    <br>
+    <br>
+    <div>Choose color for Material 2</div>
+    <select id="materialDropdown2">
+    </select>
+    </div>
+    <p>
+      Shininess:
+      <input
+        type="range"
+        onkeydown="return false;"
+        name="shininess"
+        id="shiny"
+        min="1"
+        max="128"
+        value="10"
+        class="slider"
+      />
+      <button type="button" onclick="resetShiny()">Reset</button>
+    </p>
+ <p>
+      <button type="button" onclick="att(1)">ATT None</button>
+      <button type="button" onclick="att(2)">ATT 1/dist</button>
+      <button type="button" onclick="att(3)">ATT 1/dist^2</button>
+  </p>
+
+    <table>
+    
+      <tr>
+        <td>Position:</td>
+        <td>X: <input type="range" id="posX" min="-10" max="10" step="0.1" value="0.0" /></td>
+        <td>Y: <input type="range" id="posY" min="-10" max="10" step="0.1" value="0.0" /></td>
+        <td>Z: <input type="range" id="posZ" min="-10" max="10" step="0.1" value="10.0" /></td>
+      </tr>
+      <tr>
+        <td>Ambient:</td>
+        <td>R: <input type="range" id="ambiR" min="0" max="1" step="0.1" value="0.4" /></td>
+        <td>G: <input type="range" id="ambiG" min="0" max="1" step="0.1" value="0.4" /></td>
+        <td>B: <input type="range" id="ambiB" min="0" max="1" step="0.1" value="0.4" /></td>
+      </tr>
+      <tr>
+        <td>Diffuse:</td>
+        <td>R: <input type="range" id="diffR" min="0" max="1" step="0.1" value="1.0" /></td>
+        <td>G: <input type="range" id="diffG" min="0" max="1" step="0.1" value="1.0" /></td>
+        <td>B: <input type="range" id="diffB" min="0" max="1" step="0.1" value="1.0" /></td>
+      </tr>
+      <tr>
+        <td>Specular:</td>
+        <td>R: <input type="range" id="specR" min="0" max="1" step="0.1" value="1.0" /></td>
+        <td>G: <input type="range" id="specG" min="0" max="1" step="0.1" value="1.0" /></td>
+        <td>B: <input type="range" id="specB" min="0" max="1" step="0.1" value="1.0" /></td>
+      </tr>
+    </table>
+
+    <div>
+      <h2>Instructions</h2>
+      <ol>
+      <li> Use W, A, S, D keys to move around scene up, left, down, right respectively</li>
+      <li> Use i, j, k, l keys to change look at  up, left, down, right respectively</li>
+      <li> you can toggle grid view with "Grid hide/show"  button</li>
+      <li> you can toggle between Phong and Gouraud shading with "toggle Phong/Gouraud" button </li>
+      <li> you can toggle between Phong and Blinn-phong light with "toggle Phong/Blinn-phong" button</li>
+      <li>You can select materials from the dropdowns for material 1 and material 2</li>
+      <li> you can adjust shininess with shininess slidder</li>
+      <li> you can can choose attenuation option on ATT buttons</li>
+      <li>you may adjust different 'R' (red), 'G' (green), 'B' (blue), value to change the color of the ambient, diffuse, and specular light.</li>
+      </ol>
+    </div>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix-quat03.js"></script>
+<!-- YOU SHOULD UPGRADE to Brandon Jones' far-faster, 
+      far more complete vector/matrix/quaternion library: (Google it!)
+		<script src="../lib/glmatrix.js"></script>
+--> <script src="lib/materials_Ayerdi04.js"></script>
+		<script src="lib/vbo_lib.js"></script>
+    <script src="BeraIphigenie_ProjC.js"></script>
+
+  </body>
+</html>
